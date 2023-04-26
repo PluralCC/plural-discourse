@@ -16,7 +16,7 @@
             </div>
             {{! user_field_1 seems to be auto generated depending on the order of adding custom fields,
             so it may vary per env and needs to be validated in the user_custom_fields table }}
-            {{#if this.currentUser.custom_fields.user_field_1 }}
+            {{#if this.currentUser.custom_fields.user_field_1}}
               <div>Organisation:
                 <strong>{{this.currentUser.custom_fields.user_field_1}}</strong>
               </div>
