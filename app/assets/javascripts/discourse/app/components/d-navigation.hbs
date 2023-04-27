@@ -63,6 +63,7 @@
 
   <CreateTopicButton
     @canCreateTopic={{this.canCreateTopic}}
+    @canShowTopicButton={{this.canShowTopicButton}}
     @action={{action "clickCreateTopicButton"}}
     @disabled={{this.createTopicButtonDisabled}}
     @label={{this.createTopicLabel}}
@@ -108,6 +109,10 @@
         />
       {{/if}}
     {{/unless}}
+  {{/if}}
+
+  {{#if this.category}}
+    <div class="category-header-title">{{this.category.name}}</div>
   {{/if}}
 
 </div>

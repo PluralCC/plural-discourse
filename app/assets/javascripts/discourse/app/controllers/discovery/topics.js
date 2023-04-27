@@ -170,6 +170,9 @@ const controllerOpts = {
 
     const category = this.category;
     if (category) {
+      if (category.has_children) {
+        return;
+      }
       return I18n.t("topics.bottom.category", {
         category: category.get("name"),
       });
