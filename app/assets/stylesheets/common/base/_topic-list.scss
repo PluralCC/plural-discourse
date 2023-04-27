@@ -32,7 +32,7 @@
 }
 
 .category-breadcrumb {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   gap: var(--nav-space) 0; // used if the breadcrumb dropdowns wrap
   list-style: none;
@@ -78,16 +78,6 @@
         margin: 0;
       }
     }
-  }
-  .category-header-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--font-up-2);
-    font-family: var(--heading-font-family);
-    color: var(--primary);
-    font-weight: bold;
-    /*margin-left: 15px;*/
   }
 }
 
