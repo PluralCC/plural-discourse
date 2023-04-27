@@ -14,7 +14,7 @@ export default Component.extend(FilterModeMixin, {
   canShowTopicButton: false,
 
   didInsertElement() {
-    this.set("canShowTopicButton", this.canCreateTopic);
+    this.set("canShowTopicButton", this.canShowTopicAction());
   },
 
   didUpdate() {
