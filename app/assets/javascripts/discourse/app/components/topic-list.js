@@ -28,6 +28,7 @@ export default Component.extend(LoadMore, {
   saveButtonText: "Save",
   resetButtonText: "Reset",
   isSaving: false,
+  showTopicsList: false,
 
   fetchTopicVotes() {
     const categoryId = this.get("category.id");
@@ -50,6 +51,12 @@ export default Component.extend(LoadMore, {
       .catch((error) => {
         console.error("Error fetching quadratic_votes:", error);
       });
+  },
+
+  canShowTopicsList() {
+    const canCreateTopic =
+      this.canCreateTopic === undefined || this.canCreateTopic;
+    return !!this.category && !this.category.has_children && !!canCreateTopic;
   },
 
   updateVotesCanvas() {
@@ -327,11 +334,17 @@ export default Component.extend(LoadMore, {
 
   didInsertElement() {
     this._super(...arguments);
+    this.set("showTopicsList", this.canCreateTopic);
     this.scrollToLastPosition();
     if (this.currentUser && this.category && this.category.id) {
       this.set("showUserVoiceCredits", true);
     }
     jQuery(window).on("load", run.bind(this, this.updateVotesCanvas));
+  },
+
+  didUpdate() {
+    this.set("showTopicsList", this.canShowTopicsList());
+    this.updateVotesCanvas();
   },
 
   didUpdateAttrs() {

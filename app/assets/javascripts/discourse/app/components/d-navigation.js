@@ -11,6 +11,20 @@ export default Component.extend(FilterModeMixin, {
   router: service(),
   dialog: service(),
   tagName: "",
+  canShowTopicButton: false,
+
+  didInsertElement() {
+    this.set("canShowTopicButton", this.canShowTopicAction());
+  },
+
+  didUpdate() {
+    this.set("canShowTopicButton", this.canShowTopicAction());
+  },
+
+  canShowTopicAction() {
+    const canCreateTopic = this.canCreateTopic;
+    return this.category && !this.category.has_children && canCreateTopic;
+  },
 
   // Should be a `readOnly` instead but some themes/plugins still pass
   // the `categories` property into this component
