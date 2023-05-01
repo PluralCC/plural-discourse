@@ -85,9 +85,9 @@
     {{/if ~}}
     <span>
       <div class="headric-metric">
-        <div class="metric-title">QV</div>  
+        <div class="metric-title">Plurality</div>  
         <div class="hearts-wrapper">
-          <span class="quadratic-vote-formula">(Σ√</span><img class="full-heart-header" src="/images/full-heart.png" alt="Full Hearts"><span class="quadratic-vote-formula">)</span><sup class="qv-superscript">2</sup> 
+          <img class="full-heart-header" src="/images/triple-hearts.png" alt="Full Hearts">
         </div>
       </div>  
     </span>
