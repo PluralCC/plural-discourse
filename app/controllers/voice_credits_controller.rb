@@ -56,8 +56,8 @@ class VoiceCreditsController < ApplicationController
           { user_id: user_id, groups: formatted_fields }
         end
     # we need to add the users that have no custom fields
-    group_users = user_groups.map { |x| x[:user_id] }
-    no_group_users_ids = unique_users.filter { |x| !group_users.include?(x.id) }.map(&:id)
+    group_user_ids = user_groups.map { |x| x[:user_id] }
+    no_group_users_ids = unique_users.filter { |x| !group_user_ids.include?(x.id) }.map(&:id)
     no_group_users_ids.each { |user_id| user_groups << { user_id: user_id, groups: ["no_group"] } }
 
     user_votes = VoiceCredit.where("credits_allocated > 0 AND category_id = ?", category_id)
