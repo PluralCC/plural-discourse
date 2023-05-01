@@ -655,9 +655,6 @@ class TopicQuery
             .group_by(&:user_id)
             .map do |user_id, fields|
               formatted_fields = fields.map { |x| "#{x.name}_#{x.value}" }
-
-              formatted_fields << "no_group" if formatted_fields.empty?
-
               { user_id: user_id, groups: formatted_fields }
             end
 
