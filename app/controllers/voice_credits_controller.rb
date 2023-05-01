@@ -48,9 +48,6 @@ class VoiceCreditsController < ApplicationController
     unique_topics = Topic.where(category_id: category_id)
     custom_fields = UserCustomField.all
 
-    ## max number of user options
-    max_user_options = UserField.count
-
     user_groups =
       custom_fields
         .group_by(&:user_id)
