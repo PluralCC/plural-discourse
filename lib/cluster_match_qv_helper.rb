@@ -44,6 +44,11 @@ module ClusterMatchQvHelper
     Math.sqrt(result)
   end
 
+  ## unique_users: list of user Objects from User Model
+  ## unique_groups: list of group names. EX: ["user_field_1_Ethereum_Foundation", "user_field_1_Radical_Exchange", "user_field_1_Other", "user_field_2_Asia", "user_field_2_Europe", "no_group"]
+  ## unique_topics: list of topic Objects from Topic Model
+  ## user_groups: [{:user_id=>1, :groups=>["user_field_1_Other", "user_field_2_Asia"]},{:user_id=>-2, :groups=>["no_group"]... ]
+  ## user_votes: list of Voice credit objects from VoiceCredit Model
   def self.process_data(unique_users, unique_groups, unique_topics, user_groups, user_votes)
     # Create a mapping of user_id to the index
     user_index_mapping = {}
