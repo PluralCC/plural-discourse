@@ -63,6 +63,10 @@ class VoiceCreditsController < ApplicationController
 
           { user_id: user_id, groups: formatted_fields }
         end
+    # we need to add the users that have no custom fields
+    group_users = user_groups.map { |x| x[:user_id] }
+    no_group_users_ids = unique_users.filter { |x| !group_users.include?(x.id) }.map(&:id)
+    no_group_users_ids.each { |user_id| user_groups << { user_id: user_id, groups: ["no_group"] } }
 
     user_votes = VoiceCredit.where("credits_allocated > 0 AND category_id = ?", category_id)
 
@@ -103,37 +107,6 @@ class VoiceCreditsController < ApplicationController
     # Square the sum of total votes per topic
     result.each { |topic_id, topic_data| topic_data[:total_votes] = topic_data[:total_votes]**2 }
 
-    ## OLD
-    # results
-    #     {16=>{:topic_id=>16, :total_votes=>0.0},
-    #  41=>{:topic_id=>41, :total_votes=>0.0},
-    #  3=>{:topic_id=>3, :total_votes=>5.999999999999999}, ####
-    #  29=>{:topic_id=>29, :total_votes=>12.999999999999998}, ###
-    #  33=>{:topic_id=>33, :total_votes=>0.0},
-    #  34=>{:topic_id=>34, :total_votes=>17.324555320336763}, ###
-    #  36=>{:topic_id=>36, :total_votes=>0.0},
-    #  9=>{:topic_id=>9, :total_votes=>0.0},
-    #  10=>{:topic_id=>10, :total_votes=>0.0},
-    #  11=>{:topic_id=>11, :total_votes=>0.0},
-    #  32=>{:topic_id=>32, :total_votes=>0.0},
-    #  12=>{:topic_id=>12, :total_votes=>0.0},
-    #  13=>{:topic_id=>13, :total_votes=>0.0},
-    #  15=>{:topic_id=>15, :total_votes=>0.0},
-    #  17=>{:topic_id=>17, :total_votes=>0.0},
-    #  18=>{:topic_id=>18, :total_votes=>0.0},
-    #  19=>{:topic_id=>19, :total_votes=>0.0},
-    #  44=>{:topic_id=>44, :total_votes=>17.0}, ###
-    #  39=>{:topic_id=>39, :total_votes=>49.0}, ####
-    #  31=>{:topic_id=>31, :total_votes=>0.0},
-    #  40=>{:topic_id=>40, :total_votes=>0.0},
-    #  20=>{:topic_id=>20, :total_votes=>0.0},
-    #  21=>{:topic_id=>21, :total_votes=>0.0},
-    #  22=>{:topic_id=>22, :total_votes=>0.0},
-    #  23=>{:topic_id=>23, :total_votes=>0.0},
-    #  24=>{:topic_id=>24, :total_votes=>0.0},
-    #  25=>{:topic_id=>25, :total_votes=>0.0},
-    #  26=>{:topic_id=>26, :total_votes=>0.0},
-    #  27=>{:topic_id=>27, :total_votes=>0.0},
     render json: {
              success: true,
              total_vote_values_per_topic: result,

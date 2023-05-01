@@ -26,7 +26,6 @@ module ClusterMatchQvHelper
     result = 0
 
     groups.each { |g| g.each { |i| result += contributions[i] / group_memberships_map[i].length } }
-
     groups.each do |g|
       groups.each do |h|
         next if g == h
