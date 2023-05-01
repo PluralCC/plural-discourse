@@ -10,7 +10,7 @@ class TopicQuery
   include PrivateMessageLists
 
   PG_MAX_INT ||= 2_147_483_647
-  DEFAULT_PER_PAGE_COUNT ||= 200
+  DEFAULT_PER_PAGE_COUNT ||= 2000
 
   def self.validators
     @validators ||=

@@ -171,11 +171,15 @@ export default Component.extend(LoadMore, {
       .then((response) => response)
       .then((data) => {
         if (data.success === true) {
-          this.set("remainingVotes", 100);
-          this.set("voiceCredits", allCredits);
-          this.updateVotesCanvas();
-          this.set("resetButtonText", "✓");
-          this.fetchTopicVotes();
+          // this was the solution without reloading the page
+          // this.set("remainingVotes", 100);
+          // this.set("voiceCredits", allCredits);
+          // this.updateVotesCanvas();
+          // this.set("resetButtonText", "✓");
+          // this.fetchTopicVotes();
+
+          // refresh the page
+          window.location.reload();
         } else {
           throw new Error(data);
         }
@@ -246,10 +250,14 @@ export default Component.extend(LoadMore, {
       .then((response) => response)
       .then((data) => {
         if (data.success === true) {
-          console.log(data);
-          this.updateVotesCanvas();
-          this.set("saveButtonText", "✓");
-          this.fetchTopicVotes();
+          // this was the solution without reloading the page
+          // console.log(data);
+          // this.updateVotesCanvas();
+          // this.set("saveButtonText", "✓");
+          // this.fetchTopicVotes();
+
+          // refresh the page
+          window.location.reload();
         } else {
           throw new Error(data);
         }
