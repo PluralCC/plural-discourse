@@ -79,7 +79,6 @@ class VoiceCreditsController < ApplicationController
       if vote_value.nil?
         discounted_result[topic_id] = { topic_id: topic_id, total_votes: 0 }
       else
-        puts "topic_id: #{topic_id}"
         value_score = ClusterMatchQvHelper.cluster_match(processed_groups, vote_value)
         discounted_result[topic_id] = { topic_id: topic_id, total_votes: value_score }
       end
