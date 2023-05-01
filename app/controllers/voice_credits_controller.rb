@@ -99,10 +99,29 @@ class VoiceCreditsController < ApplicationController
     # Square the sum of total votes per topic
     result.each { |topic_id, topic_data| topic_data[:total_votes] = topic_data[:total_votes]**2 }
 
+    ## individual voice credits per topic, list. 34: [1,32, 434]  ## 34 is topic id, [1,32, 434]  voice credits (credits_allocated)
+    contributions =
+      VoiceCredit
+        .where(category_id: category_id)
+        .map { |record| { topic_id: record.topic_id, credits_allocated: record.credits_allocated } }
+
+    ## this is used only for debugging in an environment
+    individual_user_credits_allocated_per_topic = {}
+    individual_voice_credits_per_topic =
+      contributions
+        .group_by { |x| x[:topic_id] }
+        .each do |topic_id, voice_credits|
+          individual_user_credits_allocated_per_topic[topic_id] = voice_credits.map do |x|
+            x[:credits_allocated]
+          end
+        end
+
     render json: {
              success: true,
              total_vote_values_per_topic: result,
              discounted_total_vote_values_per_topic: discounted_result,
+             individual_user_credits_allocated_per_topic:
+               individual_user_credits_allocated_per_topic,
            }
   end
 
