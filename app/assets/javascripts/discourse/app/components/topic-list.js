@@ -10,8 +10,10 @@ import showModal from "discourse/lib/show-modal";
 import { action } from "@ember/object";
 import jQuery from "jquery";
 import { ajax } from "discourse/lib/ajax";
+import { inject as service } from "@ember/service";
 
 export default Component.extend(LoadMore, {
+  site: service(),
   tagName: "table",
   classNames: ["topic-list"],
   classNameBindings: ["bulkSelectEnabled:sticky-header"],
@@ -25,6 +27,7 @@ export default Component.extend(LoadMore, {
   filteredTopics: alias("topics"),
   topicVotes: {},
   voiceCredits: {},
+  customFieldIdToLabel: {},
   saveButtonText: "Save",
   resetButtonText: "Reset",
   isSaving: false,
@@ -339,6 +342,13 @@ export default Component.extend(LoadMore, {
     if (this.currentUser && this.category && this.category.id) {
       this.set("showUserVoiceCredits", true);
     }
+    this.set(
+      "customFieldIdToLabel",
+      this.site.user_fields.reduce((a, v) => {
+        const label = v.name.charAt(0).toUpperCase() + v.name.slice(1);
+        return { ...a, ["user_field_" + v.id]: label };
+      }, {})
+    );
     jQuery(window).on("load", run.bind(this, this.updateVotesCanvas));
   },
 
