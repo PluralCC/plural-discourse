@@ -661,6 +661,13 @@ class TopicQuery
               { user_id: user_id, groups: formatted_fields }
             end
 
+        # we need to add the users that have no custom fields
+        group_users = user_groups.map { |x| x[:user_id] }
+        no_group_users_ids = unique_users.filter { |x| !group_users.include?(x.id) }.map(&:id)
+        no_group_users_ids.each do |user_id|
+          user_groups << { user_id: user_id, groups: ["no_group"] }
+        end
+
         topics =
           ClusterMatchQvHelper.sort_by_topics_score(
             unique_users,
