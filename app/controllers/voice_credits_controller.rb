@@ -31,12 +31,10 @@ class VoiceCreditsController < ApplicationController
   # The vote value is the translation of voice_credits (SQRT(voice_credits)
   def total_votes_per_topic_for_category
     category_id = params[:category_id]
-    totals =
+    voic_credit_totals =
       VoiceCredit
         .where(category_id: category_id)
         .map { |record| { topic_id: record.topic_id, vote_value: record.vote_value } }
-
-    discounted_totals = totals
 
     result = {}
     discounted_result = {}
@@ -79,7 +77,8 @@ class VoiceCreditsController < ApplicationController
         user_votes,
       )
 
-    discounted_totals.each do |ct|
+    ## TODO both loops can be merged into one
+    voic_credit_totals.each do |ct|
       topic_id = ct[:topic_id]
       vote_value = topic_contributions[topic_id]
 
@@ -94,7 +93,7 @@ class VoiceCreditsController < ApplicationController
     # topic_contributions example
     # {3=>[6, 0, 0, 0, 0, 0], 29=>[13, 0, 0, 0, 0, 0], 34=>[10, 0, 1, 0, 0, 0], 44=>[17, 0, 0, 0, 0, 0], 39=>[49, 0, 0, 0, 0, 0]}
 
-    totals.each do |ct|
+    voic_credit_totals.each do |ct|
       topic_id = ct[:topic_id]
       vote_value = ct[:vote_value]
       if result[topic_id].nil?
