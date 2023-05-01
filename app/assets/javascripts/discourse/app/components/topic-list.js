@@ -46,8 +46,8 @@ export default Component.extend(LoadMore, {
       .then((response) => response.json())
       .then((r) => {
         if (r.success) {
-          console.log("topicVotes", r.total_vote_values_per_topic);
-          this.set("topicVotes", r.total_vote_values_per_topic);
+          console.log("topicVotes", r.discounted_total_vote_values_per_topic);
+          this.set("topicVotes", r.discounted_total_vote_values_per_topic);
           this.set("showQuadraticTotals", true);
         }
       })
@@ -181,11 +181,15 @@ export default Component.extend(LoadMore, {
       .then((response) => response)
       .then((data) => {
         if (data.success === true) {
-          this.set("remainingVotes", 100);
-          this.set("voiceCredits", allCredits);
-          this.updateVotesCanvas();
-          this.set("resetButtonText", "✓");
-          this.fetchTopicVotes();
+          // this was the solution without reloading the page
+          // this.set("remainingVotes", 100);
+          // this.set("voiceCredits", allCredits);
+          // this.updateVotesCanvas();
+          // this.set("resetButtonText", "✓");
+          // this.fetchTopicVotes();
+
+          // refresh the page
+          window.location.reload();
         } else {
           throw new Error(data);
         }
@@ -256,10 +260,14 @@ export default Component.extend(LoadMore, {
       .then((response) => response)
       .then((data) => {
         if (data.success === true) {
-          console.log(data);
-          this.updateVotesCanvas();
-          this.set("saveButtonText", "✓");
-          this.fetchTopicVotes();
+          // this was the solution without reloading the page
+          // console.log(data);
+          // this.updateVotesCanvas();
+          // this.set("saveButtonText", "✓");
+          // this.fetchTopicVotes();
+
+          // refresh the page
+          window.location.reload();
         } else {
           throw new Error(data);
         }

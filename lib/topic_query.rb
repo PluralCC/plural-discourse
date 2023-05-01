@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative "cluster_match_qv_helper"
 
 #
 # Helps us find topics.
@@ -9,7 +10,7 @@ class TopicQuery
   include PrivateMessageLists
 
   PG_MAX_INT ||= 2_147_483_647
-  DEFAULT_PER_PAGE_COUNT ||= 200
+  DEFAULT_PER_PAGE_COUNT ||= 2000
 
   def self.validators
     @validators ||=
@@ -618,7 +619,8 @@ class TopicQuery
     result.where("topics.category_id != ?", drafts_category_id)
   end
 
-  def apply_ordering(result, options)
+  # topics - all the topics; we only care about id
+  def apply_ordering(topics, options)
     sort_column = SORTABLE_MAPPING[options[:order]] || "default"
     sort_dir = (options[:ascending] == "true") ? "ASC" : "DESC"
 
@@ -630,25 +632,54 @@ class TopicQuery
       # if sort_dir == "DESC"
       #  # If something requires a custom order, for example "unread" which sorts the least read
       #   # to the top, do nothing
-      #   return result if options[:unordered]
+      #   return topics if options[:unordered]
       # end
       # sort_column = "bumped_at"
-      ### END of PCC change ###
 
-      ### PCC change ###
+      # index for groups: field_id + value_id
+      # { [index]: group }
+
       category_id = get_category_id(options[:category])
       if category_id && category_id != 1 #Uncategorized
-        result =
-          result.joins(
-            "LEFT JOIN (SELECT topic_id, SUM(SQRT(credits_allocated)) as total_voice_credits_score FROM voice_credits where category_id =#{category_id} GROUP BY topic_id) vc ON vc.topic_id = topics.id",
-          ).order("total_voice_credits_score IS NULL, total_voice_credits_score DESC") #null values last
+        unique_groups =
+          UserFieldOption.all.map do |x|
+            "user_field_#{x.user_field_id}_#{x.value}".gsub(/\s+/, "_")
+          end
+        unique_groups << "no_group"
+        unique_users = User.all
+        user_votes = VoiceCredit.where("credits_allocated > 0 AND category_id = ?", category_id)
+        custom_fields = UserCustomField.all
+        # groups for each user
+        user_groups =
+          custom_fields
+            .group_by(&:user_id)
+            .map do |user_id, fields|
+              formatted_fields = fields.map { |x| "#{x.name}_#{x.value}" }
+              { user_id: user_id, groups: formatted_fields }
+            end
 
-        return result
+        # we need to add the users that have no custom fields
+        group_user_ids = user_groups.map { |x| x[:user_id] }
+        no_group_users_ids = unique_users.filter { |x| !group_user_ids.include?(x.id) }.map(&:id)
+        no_group_users_ids.each do |user_id|
+          user_groups << { user_id: user_id, groups: ["no_group"] }
+        end
+
+        topics =
+          ClusterMatchQvHelper.sort_by_topics_score(
+            unique_users,
+            unique_groups,
+            topics,
+            user_groups,
+            user_votes,
+          )
+
+        return topics
       else
         if sort_dir == "DESC"
           # If something requires a custom order, for example "unread" which sorts the least read
           # to the top, do nothing
-          return result if options[:unordered]
+          return topics if options[:unordered]
         end
         sort_column = "bumped_at"
       end
@@ -658,14 +689,14 @@ class TopicQuery
     # If we are sorting by category, actually use the name
     if sort_column == "category_id"
       # TODO forces a table scan, slow
-      return result.references(:categories).order(<<~SQL)
+      return topics.references(:categories).order(<<~SQL)
         CASE WHEN categories.id = #{SiteSetting.uncategorized_category_id.to_i} THEN '' ELSE categories.name END #{sort_dir}
       SQL
     end
 
     if sort_column == "op_likes"
       return(
-        result.includes(:first_post).order(
+        topics.includes(:first_post).order(
           "(SELECT like_count FROM posts p3 WHERE p3.topic_id = topics.id AND p3.post_number = 1) #{sort_dir}",
         )
       )
@@ -674,13 +705,13 @@ class TopicQuery
     if sort_column.start_with?("custom_fields")
       field = sort_column.split(".")[1]
       return(
-        result.order(
+        topics.order(
           "(SELECT CASE WHEN EXISTS (SELECT true FROM topic_custom_fields tcf WHERE tcf.topic_id::integer = topics.id::integer AND tcf.name = '#{field}') THEN (SELECT value::integer FROM topic_custom_fields tcf WHERE tcf.topic_id::integer = topics.id::integer AND tcf.name = '#{field}') ELSE 0 END) #{sort_dir}",
         )
       )
     end
 
-    result.order("topics.#{sort_column} #{sort_dir}")
+    topics.order("topics.#{sort_column} #{sort_dir}")
   end
 
   def get_category_id(category_id_or_slug)
