@@ -320,6 +320,7 @@
 }
 
 tr.category-topic-link {
+  display: none;
   border-bottom: 1px solid var(--primary-low);
   &:last-of-type {
     border-bottom: none;
@@ -371,6 +372,7 @@ tr.category-topic-link {
   }
 
   .subcategories-list {
+    display: none;
     border-bottom: none;
     td {
       padding-top: 15px;
@@ -430,6 +432,7 @@ tr.category-topic-link {
 }
 
 .topic-list-bottom {
+  display: none;
   margin: 20px 0 0 0;
 }
 

@@ -135,6 +135,7 @@
 }
 
 .topic-list-bottom {
+  display: none;
   margin: 20px 0;
   .footer-message {
     padding-top: 4px;
@@ -323,6 +324,9 @@ th.square-root-hearts {
 th.heart-header-column {
   width: 90px;
 }
+th.heart-header-column.plurality-score-header {
+  width: 100px;
+}
 
 .heart-header-wrapper {
   display: flex;
@@ -397,7 +401,7 @@ th.heart-header-column {
   }
 }
 
-.headric-metric {
+.header-metric {
   display: flex;
   flex-direction: column;
   justify-content: center;
