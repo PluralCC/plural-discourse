@@ -34,7 +34,7 @@
       {{/if ~}}
     {{/if ~}}
     <span>
-      <div class="headric-metric">
+      <div class="header-metric">
         <div class="metric-title">Your Hearts</div>      
         <div class="hearts-wrapper">
           <img class="full-heart-header" src="/images/full-heart.png" alt="Full Hearts"> 
@@ -58,7 +58,7 @@
       {{/if ~}}
     {{/if ~}}
     <span>
-      <div class="headric-metric">
+      <div class="header-metric">
         <div class="metric-title">Heart Power</div>  
         <div class="hearts-wrapper">
           <span class="quadratic-vote-formula">√</span><img class="full-heart-header" src="/images/full-heart.png" alt="Full Hearts">
@@ -68,7 +68,7 @@
   </th>
 {{/if ~}}
 {{#if showQuadraticTotals}}
-  <th data-sort-order='square_root_hearts' class='heart-header-column square-root-hearts topic-list-data' scope="col">
+  <th data-sort-order='square_root_hearts' class='plurality-score-header heart-header-column square-root-hearts topic-list-data' scope="col">
     {{~#if canBulkSelect}}
       {{~#if showBulkToggle}}
         {{raw "flat-button" class="bulk-select" icon="list" title="topics.bulk.toggle"}}
@@ -84,8 +84,8 @@
       {{/if ~}}
     {{/if ~}}
     <span>
-      <div class="headric-metric">
-        <div class="metric-title">Plurality</div>  
+      <div class="header-metric">
+        <div class="metric-title">Plurality Score</div>  
         <div class="hearts-wrapper">
           <img class="full-heart-header" src="/images/triple-hearts.png" alt="Full Hearts">
         </div>
