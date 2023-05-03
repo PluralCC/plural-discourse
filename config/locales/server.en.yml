@@ -1487,6 +1487,7 @@ en:
     v3_analytics_deprecated: "Your Discourse is currently using Google Analytics 3, which will no longer be supported after July 2023. <a href='https://meta.discourse.org/t/260498'>Upgrade to Google Analytics 4</a> now to continue receiving valuable insights and analytics for your website's performance."
 
   site_settings:
+    check_allow_list: "Check if user is in allow list"
     allow_bulk_invite: "Allow bulk invites by uploading a CSV file"
     disabled: "disabled"
     display_local_time_in_user_card: "Display the local time based on a user's timezone when their user card is opened."
