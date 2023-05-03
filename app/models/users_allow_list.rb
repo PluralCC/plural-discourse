@@ -6,7 +6,7 @@ end
 
 # == Schema Information
 #
-# Table name: users_allow_list
+# Table name: users_allow_lists
 #
 #  id                :bigint           not null, primary key
 #  hashed_email      :integer          not null
@@ -15,5 +15,5 @@ end
 #
 # Indexes
 #
-#  index_users_allow_list_on_hashed_email (hashed_email) UNIQUE
+#  index_users_allow_lists_on_hashed_email (hashed_email) UNIQUE
 #
