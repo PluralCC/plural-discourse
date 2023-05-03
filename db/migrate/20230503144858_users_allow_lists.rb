@@ -3,7 +3,7 @@
 class UsersAllowLists < ActiveRecord::Migration[7.0]
   def change
     create_table :users_allow_lists do |t|
-      t.integer :hashed_email, null: false
+      t.string :hashed_email, null: false
 
       t.timestamps
     end
