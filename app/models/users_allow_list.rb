@@ -9,7 +9,7 @@ end
 # Table name: users_allow_lists
 #
 #  id           :bigint           not null, primary key
-#  hashed_email :string          not null
+#  hashed_email :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
