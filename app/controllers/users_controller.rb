@@ -633,7 +633,8 @@ class UsersController < ApplicationController
       return render json: failed_json.merge(errors: [error])
     end
 
-    if !UsersAllowList.find_by_hashed_email(md5_hash_string(email)).present?
+    if SiteSetting.check_allow_list &&
+         !UsersAllowList.find_by_hashed_email(md5_hash_string(email)).present?
       error = UsersAllowList.new.errors.full_message(:email, "is not on the allow list")
       return render json: failed_json.merge(errors: [error])
     end

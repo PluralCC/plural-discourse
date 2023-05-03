@@ -388,6 +388,7 @@ basic:
     default: false
 
 login:
+  check_allow_list: false
   invite_only:
     refresh: true
     client: true
