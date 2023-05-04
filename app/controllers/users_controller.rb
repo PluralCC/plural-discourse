@@ -695,6 +695,8 @@ class UsersController < ApplicationController
       ReviewableUser.set_approved_fields!(user, current_user)
     end
 
+    ###TODO HERE
+
     # Handle custom fields
     user_fields = UserField.all
     if user_fields.present?
