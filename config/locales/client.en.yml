@@ -1559,6 +1559,7 @@ en:
         instructions: "Never shown to the public."
         admin_note: "Note: An admin user changing another non-admin user's email indicates the user has lost access to their original email account, so a reset password email will be sent to their new address. The user's email will not change until they complete the reset password process."
         ok: "We will email you to confirm"
+        warning: "Your account will need to be approved by an admin, since it is not whitelisted"
         required: "Please enter an email address"
         invalid: "Please enter a valid email address"
         authenticated: "Your email has been authenticated by %{provider}"

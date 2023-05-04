@@ -225,6 +225,14 @@ export default Controller.extend(
                 reason: result.errors[0],
               }),
             });
+          } else if (result.success === "WARNING") {
+            this.setProperties({
+              serverAccountEmail: this.accountEmail,
+              serverEmailValidation: EmberObject.create({
+                ok: true,
+                reason: I18n.t("user.email.warning"),
+              }),
+            });
           } else {
             this.setProperties({
               serverAccountEmail: this.accountEmail,
