@@ -731,6 +731,10 @@ class ApplicationController < ActionController::Base
     { success: "OK" }
   end
 
+  def warning_json
+    { success: "WARNING" }
+  end
+
   def failed_json
     { failed: "FAILED" }
   end

@@ -34,9 +34,16 @@ class EmailValidator < ActiveModel::EachValidator
     true
   end
 
+  def self.md5_hash_string(input_string)
+    Digest::MD5.hexdigest(input_string)
+  end
+
   def self.can_auto_approve_user?(email)
     if (setting = SiteSetting.auto_approve_email_domains).present?
       return !!(EmailValidator.allowed?(email) && email_in_restriction_setting?(setting, email))
+    end
+    if SiteSetting.check_allow_list
+      return UsersAllowList.find_by_hashed_email(EmailValidator.md5_hash_string(email)).present?
     end
 
     false
