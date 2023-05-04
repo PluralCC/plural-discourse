@@ -634,7 +634,7 @@ class UsersController < ApplicationController
     end
 
     puts "md5_hash_string #{md5_hash_string(email)}"
-    if SiteSetting.check_allow_list && !UsersAllowList.find_by_hashed_email(email).present?
+    if SiteSetting.check_allow_list && !UsersAllowList.find_by_hashed_email(md5_hash_string(email)).present?
       return render json: warning_json
     end
 
