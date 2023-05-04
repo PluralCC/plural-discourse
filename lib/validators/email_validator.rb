@@ -38,7 +38,9 @@ class EmailValidator < ActiveModel::EachValidator
     if (setting = SiteSetting.auto_approve_email_domains).present?
       return !!(EmailValidator.allowed?(email) && email_in_restriction_setting?(setting, email))
     end
-    return UsersAllowList.find_by_hashed_email(email).present? if SiteSetting.check_allow_list
+    if SiteSetting.check_allow_list
+      return UsersAllowList.find_by_hashed_email(md5_hash_string(email)).present?
+    end
 
     false
   end
