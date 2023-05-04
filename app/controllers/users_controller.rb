@@ -635,7 +635,6 @@ class UsersController < ApplicationController
 
     puts "md5_hash_string #{md5_hash_string(email)}"
     if SiteSetting.check_allow_list && !UsersAllowList.find_by_hashed_email(email).present?
-      # error = UsersAllowList.new.errors.full_message(:email, "is not on the allow list")
       return render json: warning_json
     end
 
@@ -694,8 +693,6 @@ class UsersController < ApplicationController
     if user.approved? || EmailValidator.can_auto_approve_user?(user.email)
       ReviewableUser.set_approved_fields!(user, current_user)
     end
-
-    ###TODO HERE
 
     # Handle custom fields
     user_fields = UserField.all
