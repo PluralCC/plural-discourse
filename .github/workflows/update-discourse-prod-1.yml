@@ -1,8 +1,8 @@
 name: Rebuild Discourse Prod1
 concurrency: fixed-prod1
 on:
-  push:
-    branches: [main]
+#   push:
+#     branches: [main]
   workflow_dispatch:
 jobs:
   build:
