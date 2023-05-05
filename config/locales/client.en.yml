@@ -349,7 +349,7 @@ en:
       created_with_reminder_generic: "You've bookmarked this with a reminder %{date}. %{name}"
       delete: "Delete Bookmark"
       confirm_delete: "Are you sure you want to delete this bookmark? The reminder will also be deleted."
-      confirm_clear: "Are you sure you want to clear all your bookmarks from this topic?"
+      confirm_clear: "Are you sure you want to clear all your bookmarks from this question?"
       save: "Save"
       no_timezone: 'You have not set a timezone yet. You will not be able to set reminders. Set one up <a href="%{basePath}/my/preferences/profile">in your profile</a>.'
       invalid_custom_datetime: "The date and time you provided is invalid, please try again."
@@ -534,11 +534,11 @@ en:
           one: "%{count}% ignore"
           other: "%{count}% ignore"
       topics:
-        topic: "Topic"
+        topic: "Question"
         reviewable_count: "Count"
         reported_by: "Reported by"
         deleted: "[Question Deleted]"
-        original: "(original topic)"
+        original: "(original question)"
         details: "details"
         unique_users:
           one: "%{count} user"
@@ -690,12 +690,12 @@ en:
       select_timeframe: "Select a timeframe"
 
     user_action:
-      user_posted_topic: "<a href='%{userUrl}'>%{user}</a> posted <a href='%{topicUrl}'>the topic</a>"
-      you_posted_topic: "<a href='%{userUrl}'>You</a> posted <a href='%{topicUrl}'>the topic</a>"
+      user_posted_topic: "<a href='%{userUrl}'>%{user}</a> posted <a href='%{topicUrl}'>the question</a>"
+      you_posted_topic: "<a href='%{userUrl}'>You</a> posted <a href='%{topicUrl}'>the question</a>"
       user_replied_to_post: "<a href='%{userUrl}'>%{user}</a> replied to <a href='%{postUrl}'>%{post_number}</a>"
       you_replied_to_post: "<a href='%{userUrl}'>You</a> replied to <a href='%{postUrl}'>%{post_number}</a>"
-      user_replied_to_topic: "<a href='%{userUrl}'>%{user}</a> replied to <a href='%{topicUrl}'>the topic</a>"
-      you_replied_to_topic: "<a href='%{userUrl}'>You</a> replied to <a href='%{topicUrl}'>the topic</a>"
+      user_replied_to_topic: "<a href='%{userUrl}'>%{user}</a> replied to <a href='%{topicUrl}'>the question</a>"
+      you_replied_to_topic: "<a href='%{userUrl}'>You</a> replied to <a href='%{topicUrl}'>the question</a>"
 
       user_mentioned_user: "<a href='%{user1Url}'>%{user}</a> mentioned <a href='%{user2Url}'>%{another_user}</a>"
       user_mentioned_you: "<a href='%{user1Url}'>%{user}</a> mentioned <a href='%{user2Url}'>you</a>"
@@ -1121,7 +1121,7 @@ en:
         save: "Save"
         clear:
           title: "Clear"
-          warning: "Are you sure you want to clear your featured topic?"
+          warning: "Are you sure you want to clear your featured question?"
       use_current_timezone: "Use Current Timezone"
       profile_hidden: "This user's public profile is hidden."
       expand_profile: "Expand"
@@ -1723,7 +1723,7 @@ en:
         invited_via: "Invitation"
         invited_via_link: "link %{key} (%{count} / %{max} redeemed)"
         groups: "Groups"
-        topic: "Topic"
+        topic: "Question"
         sent: "Created/Last Sent"
         expires_at: "Expires"
         edit: "Edit"
@@ -1974,7 +1974,7 @@ en:
       } and { currentPosts, plural,
           one {<strong>#</strong> post}
         other {<strong>#</strong> posts}
-      }. Visitors need more to read and reply to – we recommend at least { requiredQuestions, plural,
+      }. Visitors need more to read and reply to – we recommend at least { requiredTopics, plural,
           one {<strong>#</strong> topic}
         other {<strong>#</strong> topics}
       } and { requiredPosts, plural,
@@ -1987,7 +1987,7 @@ en:
       Let's <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">start the discussion!</a> There { currentQuestions, plural,
           one {is <strong>#</strong> topic}
         other {are <strong>#</strong> topics}
-      }. Visitors need more to read and reply to – we recommend at least { requiredQuestions, plural,
+      }. Visitors need more to read and reply to – we recommend at least { requiredTopics, plural,
           one {<strong>#</strong> topic}
         other {<strong>#</strong> topics}
       }. Only staff can see this message.
@@ -2671,7 +2671,7 @@ en:
       results_page: "Search results for '%{term}'"
       more_results: "There are more results. Please narrow your search criteria."
       cant_find: "Can’t find what you’re looking for?"
-      start_new_topic: "Perhaps start a new topic?"
+      start_new_topic: "Perhaps start a new question?"
       or_search_google: "Or try searching with Google instead:"
       search_google: "Try searching with Google instead:"
       search_google_button: "Google"
@@ -2962,8 +2962,8 @@ en:
       show_links: "show links within this question"
       collapse_details: "collapse question details"
       expand_details: "expand question details"
-      read_more_in_category: "Want to read more? Browse other questions in %{categoryLink} or <a href='%{latestLink}'>view latest topics</a>."
-      read_more: "Want to read more? <a href='%{categoryLink}'>Browse all categories</a> or <a href='%{latestLink}'>view latest topics</a>."
+      read_more_in_category: "Want to read more? Browse other questions in %{categoryLink} or <a href='%{latestLink}'>view latest questions</a>."
+      read_more: "Want to read more? <a href='%{categoryLink}'>Browse all categories</a> or <a href='%{latestLink}'>view latest questions</a>."
       unread_indicator: "No member has read the last post of this question yet."
 
       # This string uses the ICU Message Format. See https://meta.discourse.org/t/7035 for translation guidelines.
@@ -3000,7 +3000,7 @@ en:
         }
         { HAS_CATEGORY, select,
           true { or browse other questions in {categoryLink}}
-          false { or <a href="{basePath}/latest">view latest topics</a>}
+          false { or <a href="{basePath}/latest">view latest questions</a>}
           other {}
         }
 
@@ -3008,11 +3008,11 @@ en:
         First post: %{createdAtDate}
         Posted: %{bumpedAtDate}
 
-      browse_all_categories_latest: "<a href='%{basePath}/categories'>Browse all categories</a> or <a href='%{basePath}/latest'>view latest topics</a>."
-      browse_all_categories_latest_or_top: "<a href='%{basePath}/categories'>Browse all categories</a>, <a href='%{basePath}/latest'>view latest topics</a> or see top:"
-      browse_all_tags_or_latest: "<a href='%{basePath}/tags'>Browse all tags</a> or <a href='%{basePath}/latest'>view latest topics</a>."
+      browse_all_categories_latest: "<a href='%{basePath}/categories'>Browse all categories</a> or <a href='%{basePath}/latest'>view latest questions</a>."
+      browse_all_categories_latest_or_top: "<a href='%{basePath}/categories'>Browse all categories</a>, <a href='%{basePath}/latest'>view latest questions</a> or see top:"
+      browse_all_tags_or_latest: "<a href='%{basePath}/tags'>Browse all tags</a> or <a href='%{basePath}/latest'>view latest questions</a>."
 
-      suggest_create_topic: Ready to <a href>propose a new topic?</a>
+      suggest_create_topic: Ready to <a href>propose a new question?</a>
       jump_reply: "Jump to post's original location"
       jump_reply_aria: "Jump to @%{username}'s post in its original location"
       deleted: "The question has been deleted"
@@ -3126,7 +3126,7 @@ en:
           "2_8_stale": "You will see a count of new replies because you were tracking this category in the past."
           "2_4": "You will see a count of new replies because you posted a reply to this question."
           "2_2": "You will see a count of new replies because you are tracking this question."
-          "2": 'You will see a count of new replies because you <a href="%{basePath}/u/%{username}/preferences/notifications">read this topic</a>.'
+          "2": 'You will see a count of new replies because you <a href="%{basePath}/u/%{username}/preferences/notifications">read this question</a>.'
           "1_2": "You will be notified if someone mentions your @name or replies to you."
           "1": "You will be notified if someone mentions your @name or replies to you."
           "0_7": "You are ignoring all notifications in this category."
@@ -6119,7 +6119,7 @@ en:
           modal_title: Badge Groupings
         granted_by: Granted By
         granted_at: Granted At
-        reason_help: (A link to a post or topic)
+        reason_help: (A link to a post or question)
         save: Save
         delete: Delete
         delete_confirm: Are you sure you want to delete this badge?
@@ -6241,7 +6241,7 @@ en:
         description: "Redirections to apply for URLs not known by the forum."
         url: "URL"
         topic_id: "Question ID"
-        topic_title: "Topic"
+        topic_title: "Question"
         post_id: "Post ID"
         post_title: "Post"
         category_id: "Category ID"
