@@ -1968,7 +1968,7 @@ en:
 
     # This string uses the ICU Message Format. See https://meta.discourse.org/t/7035 for translation guidelines.
     too_few_topics_and_posts_notice_MF: |
-      Let's <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">start the discussion!</a> There { currentQuestions, plural,
+      Let's <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">start the discussion!</a> There { currentTopics, plural,
           one {is <strong>#</strong> topic}
         other {are <strong>#</strong> topics}
       } and { currentPosts, plural,
@@ -1984,7 +1984,7 @@ en:
 
     # This string uses the ICU Message Format. See https://meta.discourse.org/t/7035 for translation guidelines.
     too_few_topics_notice_MF: |
-      Let's <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">start the discussion!</a> There { currentQuestions, plural,
+      Let's <a href="https://blog.discourse.org/2014/08/building-a-discourse-community/" target="_blank" rel="noopener noreferrer">start the discussion!</a> There { currentTopics, plural,
           one {is <strong>#</strong> topic}
         other {are <strong>#</strong> topics}
       }. Visitors need more to read and reply to – we recommend at least { requiredTopics, plural,
