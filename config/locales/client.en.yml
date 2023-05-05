@@ -304,7 +304,7 @@ en:
       see_all: 'See <a href="%{path}">all messages</a> from @%{username}...'
 
     suggested_topics:
-      title: "Suggested Topics"
+      title: "Suggested Questions"
       pm_title: "Suggested Messages"
 
     about:
@@ -443,7 +443,7 @@ en:
     choose_topic:
       none_found: "No topics found."
       title:
-        search: "Search for a Topic"
+        search: "Search for a Question"
         placeholder: "type the topic title, url or id here"
 
     choose_message:
@@ -497,7 +497,7 @@ en:
 
       moderation_history: "Moderation History"
       view_all: "View All"
-      grouped_by_topic: "Grouped by Topic"
+      grouped_by_topic: "Grouped by Question"
       none: "There are no items to review."
       view_pending: "view pending"
       topic_has_pending:
@@ -623,7 +623,7 @@ en:
           title: "Flagged Post"
           flagged_by: "Flagged By"
         reviewable_queued_topic:
-          title: "Queued Topic"
+          title: "Queued Question"
         reviewable_queued_post:
           title: "Queued Post"
         reviewable_user:
@@ -1115,9 +1115,9 @@ en:
       read_help: "Recently read topics"
       preferences: "Preferences"
       feature_topic_on_profile:
-        open_search: "Select a New Topic"
-        title: "Select a Topic"
-        search_label: "Search for Topic by title"
+        open_search: "Select a New Question"
+        title: "Select a Question"
+        search_label: "Search for Question by title"
         save: "Save"
         clear:
           title: "Clear"
@@ -1210,7 +1210,7 @@ en:
         list_destination_default: "use the default link and show a badge for new items"
         list_destination_unread_new: "link to unread/new and show a count of new items"
       change: "change"
-      featured_topic: "Featured Topic"
+      featured_topic: "Featured Question"
       moderator: "%{user} is a moderator"
       admin: "%{user} is an admin"
       moderator_tooltip: "This user is a moderator"
@@ -1538,7 +1538,7 @@ en:
         instructions: "Background images will be centered and have a default width of 590px."
 
       change_featured_topic:
-        title: "Featured Topic"
+        title: "Featured Question"
         instructions: "A link to this topic will be on your user card, and profile."
 
       email:
@@ -1851,9 +1851,9 @@ en:
         top_replies: "Top Replies"
         no_replies: "No replies yet."
         more_replies: "More Replies"
-        top_topics: "Top Topics"
+        top_topics: "Top Questions"
         no_topics: "No topics yet."
-        more_topics: "More Topics"
+        more_topics: "More Questions"
         top_badges: "Top Badges"
         no_badges: "No badges yet."
         more_badges: "More Badges"
@@ -2082,7 +2082,7 @@ en:
           other {# minutes}
         }</b>.
 
-      enable: "Summarize This Topic"
+      enable: "Summarize This Question"
       disable: "Show All Posts"
       short_label: "Summarize"
       short_title: "Show a summary of this topic: the most interesting posts as determined by the community"
@@ -2261,13 +2261,13 @@ en:
 
     category_page_style:
       categories_only: "Categories Only"
-      categories_with_featured_topics: "Categories with Featured Topics"
-      categories_and_latest_topics: "Categories and Latest Topics"
-      categories_and_latest_topics_created_date: "Categories and Latest Topics (sort by topic created date)"
-      categories_and_top_topics: "Categories and Top Topics"
+      categories_with_featured_topics: "Categories with Featured Questions"
+      categories_and_latest_topics: "Categories and Latest Questions"
+      categories_and_latest_topics_created_date: "Categories and Latest Questions (sort by topic created date)"
+      categories_and_top_topics: "Categories and Top Questions"
       categories_boxes: "Boxes with Subcategories"
-      categories_boxes_with_topics: "Boxes with Featured Topics"
-      subcategories_with_featured_topics: "Subcategories with Featured Topics"
+      categories_boxes_with_topics: "Boxes with Featured Questions"
+      subcategories_with_featured_topics: "Subcategories with Featured Questions"
 
     shortcut_modifier_key:
       shift: "Shift"
@@ -2343,7 +2343,7 @@ en:
       destination_category: "Destination Category"
       publish: "Publish Shared Draft"
       confirm_publish: "Are you sure you want to publish this draft?"
-      publishing: "Publishing Topic..."
+      publishing: "Publishing Question..."
 
     composer:
       emoji: "Emoji :)"
@@ -2411,7 +2411,7 @@ en:
       overwrite_edit: "Overwrite Edit"
       reply: "Reply"
       cancel: "Cancel"
-      create_topic: "Create Topic"
+      create_topic: "Ask Question"
       create_pm: "Message"
       create_whisper: "Whisper"
       create_shared_draft: "Create Shared Draft"
@@ -2502,7 +2502,7 @@ en:
           label: Toggle whisper
           desc: Whispers are only visible to staff members
         create_topic:
-          label: "New Topic"
+          label: "New Question"
         shared_draft:
           label: "Shared Draft"
           desc: "Draft a topic that will only be visible to allowed users"
@@ -2540,7 +2540,7 @@ en:
       empty: "No notifications found."
       post_approved: "Your post was approved"
       reviewable_items: "items requiring review"
-      watching_first_post_label: "New Topic"
+      watching_first_post_label: "New Question"
       user_moved_post: "%{username} moved"
       mentioned: "<span>%{username}</span> %{description}"
       group_mentioned: "<span>%{username}</span> %{description}"
@@ -2572,7 +2572,7 @@ en:
       linked: "<span>%{username}</span> %{description}"
       granted_badge: "Earned '%{description}'"
       topic_reminder: "<span>%{username}</span> %{description}"
-      watching_first_post: "<span>New Topic</span> %{description}"
+      watching_first_post: "<span>New Question</span> %{description}"
       membership_request_accepted: "Membership accepted in '%{group_name}'"
       membership_request_consolidated:
         one: "%{count} open membership request for '%{group_name}'"
@@ -2650,7 +2650,7 @@ en:
       sort_by: "Sort by"
       relevance: "Relevance"
       latest_post: "Latest Post"
-      latest_topic: "Latest Topic"
+      latest_topic: "Latest Question"
       most_viewed: "Most Viewed"
       most_liked: "Most Liked"
       select_all: "Select All"
@@ -2840,11 +2840,11 @@ en:
       bulk:
         select_all: "Select All"
         clear_all: "Clear All"
-        unlist_topics: "Unlist Topics"
-        relist_topics: "Relist Topics"
+        unlist_topics: "Unlist Questions"
+        relist_topics: "Relist Questions"
         reset_bump_dates: "Reset bump dates"
         defer: "Defer"
-        delete: "Delete Topics"
+        delete: "Delete Questions"
         dismiss: "Dismiss"
         dismiss_read: "Dismiss all unread"
         dismiss_read_with_selected:
@@ -2863,8 +2863,8 @@ en:
         toggle: "toggle bulk selection of topics"
         actions: "Bulk Actions"
         change_category: "Set Category..."
-        close_topics: "Close Topics"
-        archive_topics: "Archive Topics"
+        close_topics: "Close Questions"
+        archive_topics: "Archive Questions"
         move_messages_to_inbox: "Move to Inbox"
         notification_level: "Notifications..."
         change_notification_level: "Change Notification Level"
@@ -2916,9 +2916,9 @@ en:
       filter_to:
         one: "%{count} post in topic"
         other: "%{count} posts in topic"
-      create: "New Topic"
+      create: "Create New Question"
       create_disabled_category: "You're not allowed to create topics in this category"
-      create_long: "Create a new Topic"
+      create_long: "Create a new Question"
       open_draft: "Open Draft"
       private_message: "Start a message"
       archive_message:
@@ -2940,7 +2940,7 @@ en:
       unread_topics:
         one: "%{count} unread topic"
         other: "%{count} unread topics"
-      title: "Topic/Talk"
+      title: "Questions"
       invalid_access:
         title: "Topic is private"
         description: "Sorry, you don't have access to that topic!"
@@ -2957,7 +2957,7 @@ en:
       likes:
         one: "there is %{count} like in this topic"
         other: "there are %{count} likes in this topic"
-      back_to_list: "Back to Topic List"
+      back_to_list: "Back to Question List"
       options: "Topic Options"
       show_links: "show links within this topic"
       collapse_details: "collapse topic details"
@@ -3059,20 +3059,20 @@ en:
       temp_open:
         title: "Open Temporarily"
       auto_reopen:
-        title: "Auto-Open Topic"
+        title: "Auto-Open Question"
       temp_close:
         title: "Close Temporarily"
       auto_close:
-        title: "Auto-Close Topic"
+        title: "Auto-Close Question"
         label: "Auto-close topic after:"
         error: "Please enter a valid value."
         based_on_last_post: "Don't close until the last post in the topic is at least this old."
       auto_close_after_last_post:
-        title: "Auto-Close Topic After Last Post"
+        title: "Auto-Close Question After Last Post"
       auto_delete:
-        title: "Auto-Delete Topic"
+        title: "Auto-Delete Question"
       auto_bump:
-        title: "Auto-Bump Topic"
+        title: "Auto-Bump Question"
       reminder:
         title: "Remind Me"
       auto_delete_replies:
@@ -3159,37 +3159,37 @@ en:
 
       actions:
         title: "Actions"
-        recover: "Un-Delete Topic"
-        delete: "Delete Topic"
-        open: "Open Topic"
-        close: "Close Topic"
+        recover: "Un-Delete Question"
+        delete: "Delete Question"
+        open: "Open Question"
+        close: "Close Question"
         multi_select: "Select Posts…"
         slow_mode: "Set Slow Mode..."
-        timed_update: "Set Topic Timer..."
-        pin: "Pin Topic…"
-        unpin: "Un-Pin Topic…"
-        unarchive: "Unarchive Topic"
-        archive: "Archive Topic"
-        invisible: "Unlist Topic"
-        visible: "List Topic"
+        timed_update: "Set Question Timer..."
+        pin: "Pin Question…"
+        unpin: "Un-Pin Question…"
+        unarchive: "Unarchive Question"
+        archive: "Archive Question"
+        invisible: "Unlist Question"
+        visible: "List Question"
         reset_read: "Reset Read Data"
-        make_public: "Make Public Topic..."
+        make_public: "Make Public Question..."
         make_private: "Make Personal Message"
         reset_bump_date: "Reset Bump Date"
 
       feature:
-        pin: "Pin Topic"
-        unpin: "Un-Pin Topic"
-        pin_globally: "Pin Topic Globally"
-        make_banner: "Make Banner Topic"
-        remove_banner: "Remove Banner Topic"
+        pin: "Pin Question"
+        unpin: "Un-Pin Question"
+        pin_globally: "Pin Question Globally"
+        make_banner: "Make Banner Question"
+        remove_banner: "Remove Banner Question"
 
       reply:
         title: "Reply"
         help: "begin composing a reply to this topic"
 
       share:
-        title: "Share Topic"
+        title: "Share Question"
         extended_title: "Share a link"
         help: "share a link to this topic"
         instructions: "Share a link to this topic:"
@@ -3208,7 +3208,7 @@ en:
         help: "privately flag this topic for attention or send a private notification about it"
         success_message: "You successfully flagged this topic."
       make_public:
-        title: "Convert to Public Topic"
+        title: "Convert to Public Question"
         choose_category: "Please choose a category for the public topic:"
 
       feature_topic:
@@ -3287,20 +3287,20 @@ en:
         error: "There was an error moving posts."
 
       split_topic:
-        title: "Move to New Topic"
+        title: "Move to New Question"
         action: "move to new topic"
-        topic_name: "New Topic Title"
-        radio_label: "New Topic"
+        topic_name: "New Question Title"
+        radio_label: "New Question"
         error: "There was an error moving posts to the new topic."
         instructions:
           one: "You are about to create a new topic and populate it with the post you've selected."
           other: "You are about to create a new topic and populate it with the <b>%{count}</b> posts you've selected."
 
       merge_topic:
-        title: "Move to Existing Topic"
+        title: "Move to Existing Question"
         action: "move to existing topic"
         error: "There was an error moving posts into that topic."
-        radio_label: "Existing Topic"
+        radio_label: "Existing Question"
         instructions:
           one: "Please choose the topic you'd like to move that post to."
           other: "Please choose the topic you'd like to move those <b>%{count}</b> posts to."
@@ -3400,7 +3400,7 @@ en:
       wiki_last_edited_on: "wiki last edited on %{dateTime}"
       last_edited_on: "post last edited on %{dateTime}"
       edit_history: "post edit history"
-      reply_as_new_topic: "Reply as linked Topic"
+      reply_as_new_topic: "Reply as linked Question"
       reply_as_new_private_message: "Reply as new message to the same recipients"
       continue_discussion: "Continuing the discussion from %{postLink}:"
       follow_quote: "go to the quoted post"
@@ -3662,7 +3662,7 @@ en:
       edit: "Edit"
       edit_title: "Edit this category"
       edit_dialog_title: "Edit: %{categoryName}"
-      view: "View Topics in Category"
+      view: "View Questions in Category"
       back: "Back to category"
       general: "General"
       settings: "Settings"
@@ -3735,7 +3735,7 @@ en:
       allow_unlimited_owner_edits_on_first_post: "Allow unlimited owner edits on first post"
       subcategory_list_style: "Subcategory List Style:"
       sort_order: "Topic List Sort By:"
-      default_view: "Default Topic List:"
+      default_view: "Default Question List:"
       default_top_period: "Default Top Period:"
       default_list_filter: "Default List Filter:"
       allow_badges_label: "Allow badges to be awarded in this category"
@@ -3864,7 +3864,7 @@ en:
 
     flagging_topic:
       title: "Thanks for helping to keep our community civil!"
-      action: "Flag Topic"
+      action: "Flag Question"
       notify_action: "Message"
 
     topic_map:
@@ -4074,8 +4074,8 @@ en:
         profile: "%{shortcut} Profile"
         messages: "%{shortcut} Messages"
         drafts: "%{shortcut} Drafts"
-        next: "%{shortcut} Next Topic"
-        previous: "%{shortcut} Previous Topic"
+        next: "%{shortcut} Next Question"
+        previous: "%{shortcut} Previous Question"
       navigation:
         title: "Navigation"
         jump: "%{shortcut} Go to post #"
@@ -4094,7 +4094,7 @@ en:
         search: "%{shortcut} Search"
         help: "%{shortcut} Open keyboard help"
         dismiss_new: "%{shortcut} Dismiss New"
-        dismiss_topics: "%{shortcut} Dismiss Topics"
+        dismiss_topics: "%{shortcut} Dismiss Questions"
         log_out: "%{shortcut} Log Out"
       composing:
         title: "Composing"
@@ -4373,7 +4373,7 @@ en:
       no_likes_title_others: "%{username} has not liked any topics yet"
       no_likes_body: "A great way to jump in and start contributing is to start reading conversations that have already taken place, and select the %{heartIcon} on posts that you like!"
       no_topics_title: "You have not started any topics yet"
-      no_topics_body: "It’s always best to <a href='%{searchUrl}'>search</a> for existing topics of conversation before starting a new one, but if you’re confident the topic you want isn’t out there already, go ahead and start a new topic of your very own. Look for the <kbd>+ New Topic</kbd> button at the top right of the topic list, category, or tag to begin creating a new topic in that area."
+      no_topics_body: "It’s always best to <a href='%{searchUrl}'>search</a> for existing topics of conversation before starting a new one, but if you’re confident the topic you want isn’t out there already, go ahead and start a new topic of your very own. Look for the <kbd>+ New Question</kbd> button at the top right of the topic list, category, or tag to begin creating a new topic in that area."
       no_topics_title_others: "%{username} has not started any topics yet"
       no_read_topics_title: "You haven’t read any topics yet"
       no_read_topics_body: "Once you start reading discussions, you’ll see a list here. To start reading, look for topics that interest you in <a href='%{topUrl}'>Top</a> or <a href='%{categoriesUrl}'>Categories</a> or search by keyword %{searchIcon}"
@@ -4506,7 +4506,7 @@ en:
               pending_count: "%{count} pending"
 
     welcome_topic_banner:
-      title: "Create your Welcome Topic"
+      title: "Create your Welcome Question"
       description: "Your welcome topic is the first thing new members will read. Think of it as your “elevator pitch” or “mission statement.” Let everyone know who this community is for, what they can expect to find here, and what you’d like them to do first."
       button_title: "Start Editing"
 
@@ -5811,11 +5811,11 @@ en:
         activity: Activity
         like_count: Likes Given / Received
         last_100_days: "in the last 100 days"
-        private_topics_count: Private Topics
+        private_topics_count: Private Questions
         posts_read_count: Posts Read
         post_count: Posts Created
         second_factor_enabled: Two-Factor Authentication Enabled
-        topics_entered: Topics Viewed
+        topics_entered: Questions Viewed
         flags_given_count: Flags Given
         flags_received_count: Flags Received
         warnings_received_count: Warnings Received
