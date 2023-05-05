@@ -549,7 +549,7 @@ en:
       edit: "Edit"
       save: "Save"
       cancel: "Cancel"
-      new_topic: "Approving this item will create a new question"
+      new_topic: "Approving this item will ask a new question"
 
       filters:
         all_categories: "(all categories)"
@@ -815,7 +815,7 @@ en:
           settings:
             title: "Settings"
             allow_unknown_sender_topic_replies: "Allow unknown sender question replies."
-            allow_unknown_sender_topic_replies_hint: "Allows unknown senders to reply to group questions. If this is not enabled, replies from email addresses not already invited to the question will create a new question."
+            allow_unknown_sender_topic_replies_hint: "Allows unknown senders to reply to group questions. If this is not enabled, replies from email addresses not already invited to the question will ask a new question."
             from_alias: "From Alias"
             from_alias_hint: "Alias to use as the from address when sending group SMTP emails. Note this may not be supported by all mail providers, please consult your mail provider's documentation."
           mailboxes:
@@ -2916,7 +2916,7 @@ en:
       filter_to:
         one: "%{count} post in question"
         other: "%{count} posts in question"
-      create: "Create a New Question"
+      create: "Ask a New Question"
       create_disabled_category: "You're not allowed to create questions in this category"
       create_long: "Create a new Question"
       open_draft: "Open Draft"
@@ -3293,8 +3293,8 @@ en:
         radio_label: "New Question"
         error: "There was an error moving posts to the new question."
         instructions:
-          one: "You are about to create a new question and populate it with the post you've selected."
-          other: "You are about to create a new question and populate it with the <b>%{count}</b> posts you've selected."
+          one: "You are about to ask a new question and populate it with the post you've selected."
+          other: "You are about to ask a new question and populate it with the <b>%{count}</b> posts you've selected."
 
       merge_topic:
         title: "Move to Existing Question"
